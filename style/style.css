@@ -1,7 +1,7 @@
 .weatherApp {
   border: 1px solid rgba(0, 0, 0, 0.2);
   max-width: 750px;
-  min-width: fit-content;
+  min-width: 500px;
 }
 .location {
   text-align: center;
@@ -40,45 +40,42 @@
   text-align: center;
   padding: 0;
 }
+.forcast {
+  grid-gutter-width: 0;
+}
 .nextDay1 {
   display: block;
   list-style: none;
   text-align: center;
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .nextDay2 {
   display: block;
   list-style: none;
   text-align: center;
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .nextDay3 {
   display: block;
   list-style: none;
   text-align: center;
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .nextDay4 {
   display: block;
   list-style: none;
   text-align: center;
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .nextDay5 {
   display: block;
   list-style: none;
   text-align: center;
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 .nextDay6 {
   display: block;
   list-style: none;
   text-align: center;
   padding: 0;
-  border: 1px solid rgba(0, 0, 0, 0.2);
 }
