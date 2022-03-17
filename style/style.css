@@ -1,0 +1,84 @@
+.weatherApp {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  max-width: 750px;
+  min-width: fit-content;
+}
+.location {
+  text-align: center;
+}
+.nowTimeDate {
+  display: block;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+.nowIcon {
+  font-size: 70px;
+}
+.nowDescription {
+  font-size: 30px;
+}
+.nowIconDescription {
+  display: block;
+  position: relative;
+  list-style: none;
+  text-align: center;
+  bottom: 30px;
+}
+.temperature {
+  font-size: 40px;
+}
+.nowHighLow {
+  display: block;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+.nowAddDescription {
+  display: block;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+}
+.nextDay1 {
+  display: block;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.nextDay2 {
+  display: block;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.nextDay3 {
+  display: block;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.nextDay4 {
+  display: block;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.nextDay5 {
+  display: block;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+.nextDay6 {
+  display: block;
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
