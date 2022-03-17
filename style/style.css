@@ -1,16 +1,32 @@
+body {
+  background: rgb(48, 71, 71);
+}
 .weatherApp {
+  background: azure;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  max-width: 750px;
+  border-radius: 5px;
+  max-width: 600px;
   min-width: 500px;
+  margin: 30px auto;
 }
 .location {
   text-align: center;
+  font-size: 35px;
 }
 .nowTimeDate {
   display: block;
   list-style: none;
   text-align: center;
   padding: 0;
+  font-size: 25px;
+}
+.riseSetTime {
+  font-family: "Space Mono", monospace;
+  letter-spacing: -3px;
+  margin-right: 25px;
+}
+.nowRiseSet .riseSetTime {
+  font-size: 23px;
 }
 .nowIcon {
   font-size: 70px;
@@ -26,13 +42,17 @@
   bottom: 30px;
 }
 .temperature {
-  font-size: 40px;
+  font-size: 80px;
+  line-height: 100px;
+  position: sticky;
 }
 .nowHighLow {
   display: block;
   list-style: none;
   text-align: center;
   padding: 0;
+  font-size: 20px;
+  position: sticky;
 }
 .nowAddDescription {
   display: block;
@@ -41,7 +61,15 @@
   padding: 0;
 }
 .forcast {
-  grid-gutter-width: 0;
+  position: relative;
+  background: azure;
+}
+.forcast i {
+  font-size: 30px;
+}
+.forcast .sun {
+  font-size: 20px;
+  display: none;
 }
 .nextDay1 {
   display: block;
