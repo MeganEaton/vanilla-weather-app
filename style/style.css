@@ -33,6 +33,7 @@ body {
 }
 .nowDescription {
   font-size: 30px;
+  text-transform: capitalize;
 }
 .nowIconDescription {
   display: block;
@@ -45,6 +46,7 @@ body {
   font-size: 80px;
   line-height: 100px;
   position: sticky;
+  letter-spacing: -5px;
 }
 .nowHighLow {
   display: block;

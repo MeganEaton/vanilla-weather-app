@@ -25,11 +25,11 @@
   <body>
     <div class="container">
       <div class="weatherApp">
-        <h1 class="location">Montreal</h1>
+        <h1 class="location" id="location">Montreal</h1>
         <h2>
           <ul class="nowTimeDate">
-            <li class="time">11:35</li>
-            <li class="date">Thursday, March 17</li>
+            <li class="time" id="time">11:35</li>
+            <li class="date" id="date">Thursday, March 17</li>
           </ul>
           <div class="row justify-content-sm-center nowRiseSet text-center">
             <div class="col col-sm-4 sunriseTime">
@@ -47,11 +47,11 @@
           <div class="col">
             <ul class="nowIconDescription">
               <li class="nowIcon"><i class="wi wi-night-sleet"></i></li>
-              <li class="nowDescription">Clear</li>
+              <li class="nowDescription" id="now-description">Clear</li>
             </ul>
           </div>
           <div class="col-2">
-            <div class="temperature">55</div>
+            <div class="temperature" id="temperature">55</div>
           </div>
           <div class="col-1">
             <ul class="nowHighLow">
@@ -62,9 +62,13 @@
           <div class="col">
             <ul class="nowAddDescription">
               <li class="feelsLike"><i class="wi wi-thermometer"></i>: 54°</li>
-              <li class="humidity"><i class="wi wi-humidity"></i>: 51%</li>
+              <li class="humidity">
+                <i class="wi wi-humidity"></i>: <span id="humidity">60</span>%
+              </li>
               <li class="windSpeed">
-                <i class="wi wi-strong-wind"></i>: 19mph
+                <i class="wi wi-strong-wind"></i>:
+                <span id="wind-speed"></span>
+                mph
               </li>
             </ul>
           </div>
