@@ -34,11 +34,13 @@
           <div class="row justify-content-sm-center nowRiseSet text-center">
             <div class="col col-sm-4 sunriseTime">
               <i class="wi wi-sunrise"
-                ><span class="riseSetTime">00:00</span></i
+                ><span class="riseSetTime" id="sunrise">00:00</span></i
               >
             </div>
             <div class="col col-sm-4 sunsetTime">
-              <i class="wi wi-sunset"><span class="riseSetTime">00:00</span></i>
+              <i class="wi wi-sunset"
+                ><span class="riseSetTime" id="sunset">00:00</span></i
+              >
             </div>
           </div>
         </h2>
@@ -46,7 +48,9 @@
         <div class="row">
           <div class="col">
             <ul class="nowIconDescription">
-              <li class="nowIcon"><i class="wi wi-night-sleet"></i></li>
+              <li class="nowIcon" id="icon">
+                <i class="wi wi-night-sleet"></i>
+              </li>
               <li class="nowDescription" id="now-description">Clear</li>
             </ul>
           </div>
@@ -61,7 +65,10 @@
           </div>
           <div class="col">
             <ul class="nowAddDescription">
-              <li class="feelsLike"><i class="wi wi-thermometer"></i>: 54°</li>
+              <li class="feelsLike">
+                <i class="wi wi-thermometer"></i>:
+                <span id="feels-like">50</span>°
+              </li>
               <li class="humidity">
                 <i class="wi wi-humidity"></i>: <span id="humidity">60</span>%
               </li>

@@ -1,3 +1,45 @@
+function displayWeatherIcon(icon) {
+  let iconClass = "";
+  if (icon === "01d") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "01n") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "02d") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "02n") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "03d") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "03n") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "04d") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "04n") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "09d") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "09n") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "10d") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "10n") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "11d") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "11n") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "13d") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "13n") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "50d") {
+    iconClass = "wi wi-day-sunny";
+  } else if (icon === "50n") {
+    iconClass = "wi wi-day-sunny";
+  }
+  return iconClass;
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#location");
@@ -5,13 +47,21 @@ function displayTemperature(response) {
   let humidityElement = document.querySelector("#humidity");
   let windSpeedElement = document.querySelector("#wind-speed");
   let dateElement = document.querySelector("#nowTimeDate");
+  let iconElement = document.querySelector("#icon");
+  let feelsLikeElement = document.querySelector("#feels-like");
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.innerHTML = `<i class="${displayWeatherIcon(
+    response.data.weather[0].icon
+  )}"></i>`;
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
 }
+// fix icon and feels-like, add sunrise, sunset
 
 function formatDate(timestamp) {
   let date = new Date(timestamp);
@@ -52,7 +102,7 @@ function formatDate(timestamp) {
 let apiKey = "af800718d3a8f4106f6f5a11754d006c";
 let unitsM = "metric";
 let unitsI = "imperial";
-let city = "Moscow";
+let city = "Boston";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unitsI}&appid=${apiKey}`;
 
 axios.get(apiUrl).then(displayTemperature);
