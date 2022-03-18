@@ -12,6 +12,11 @@ body {
 .location {
   text-align: center;
   font-size: 35px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 450;
+}
+.time {
+  font-family: "Space Mono", monospace;
 }
 .nowTimeDate {
   display: block;
@@ -19,6 +24,8 @@ body {
   text-align: center;
   padding: 0;
   font-size: 25px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 450;
 }
 .riseSetTime {
   font-family: "Space Mono", monospace;
@@ -32,8 +39,9 @@ body {
   font-size: 70px;
 }
 .nowDescription {
-  font-size: 30px;
+  font-size: 25px;
   text-transform: capitalize;
+  font-family: "Roboto", sans-serif;
 }
 .nowIconDescription {
   display: block;
@@ -47,6 +55,7 @@ body {
   line-height: 100px;
   position: sticky;
   letter-spacing: -5px;
+  font-family: "Space Mono", monospace;
 }
 .nowHighLow {
   display: block;
@@ -55,12 +64,14 @@ body {
   padding: 0;
   font-size: 20px;
   position: sticky;
+  font-family: "Space Mono", monospace;
 }
 .nowAddDescription {
   display: block;
   list-style: none;
   text-align: center;
   padding: 0;
+  font-family: "Space Mono", monospace;
 }
 .forcast {
   position: relative;

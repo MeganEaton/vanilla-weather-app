@@ -3,39 +3,39 @@ function displayWeatherIcon(icon) {
   if (icon === "01d") {
     iconClass = "wi wi-day-sunny";
   } else if (icon === "01n") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-night-clear";
   } else if (icon === "02d") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-day-cloudy";
   } else if (icon === "02n") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-night-alt-cloudy";
   } else if (icon === "03d") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-cloud";
   } else if (icon === "03n") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-cloud";
   } else if (icon === "04d") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-cloudy";
   } else if (icon === "04n") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-cloudy";
   } else if (icon === "09d") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-showers";
   } else if (icon === "09n") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-showers";
   } else if (icon === "10d") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-day-rain";
   } else if (icon === "10n") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-night-alt-rain";
   } else if (icon === "11d") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-thunderstorm";
   } else if (icon === "11n") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-thunderstorm";
   } else if (icon === "13d") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-snow";
   } else if (icon === "13n") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-snow";
   } else if (icon === "50d") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-fog";
   } else if (icon === "50n") {
-    iconClass = "wi wi-day-sunny";
+    iconClass = "wi wi-fog";
   }
   return iconClass;
 }
@@ -46,7 +46,6 @@ function displayTemperature(response) {
   let descriptionElement = document.querySelector("#now-description");
   let humidityElement = document.querySelector("#humidity");
   let windSpeedElement = document.querySelector("#wind-speed");
-  let dateElement = document.querySelector("#nowTimeDate");
   let iconElement = document.querySelector("#icon");
   let feelsLikeElement = document.querySelector("#feels-like");
 
@@ -55,11 +54,13 @@ function displayTemperature(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
   windSpeedElement.innerHTML = Math.round(response.data.wind.speed);
-  dateElement.innerHTML = formatDate(response.data.dt * 1000);
+  formatDate(response.data.dt * 1000);
   iconElement.innerHTML = `<i class="${displayWeatherIcon(
     response.data.weather[0].icon
   )}"></i>`;
   feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
+  formatSunriseTime(response.data.sys.sunrise * 1000);
+  formatSunsetTime(response.data.sys.sunset * 1000);
 }
 // fix icon and feels-like, add sunrise, sunset
 
@@ -97,6 +98,21 @@ function formatDate(timestamp) {
   let dayDate = date.getDate();
   timeElement.innerHTML = `${hours}:${minutes}`;
   fullDateElement.innerHTML = `${day}, ${month} ${dayDate}`;
+}
+
+function formatSunriseTime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = ("0" + date.getHours()).slice(-2);
+  let minutes = ("0" + date.getMinutes()).slice(-2);
+  let sunriseElement = document.querySelector("#sunrise");
+  sunriseElement.innerHTML = `${hours}:${minutes}`;
+}
+function formatSunsetTime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = ("0" + date.getHours()).slice(-2);
+  let minutes = ("0" + date.getMinutes()).slice(-2);
+  let sunsetElement = document.querySelector("#sunset");
+  sunsetElement.innerHTML = `${hours}:${minutes}`;
 }
 
 let apiKey = "af800718d3a8f4106f6f5a11754d006c";
