@@ -96,8 +96,8 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   let month = months[date.getMonth()];
   let dayDate = date.getDate();
-  timeElement.innerHTML = `${hours}:${minutes}`;
-  fullDateElement.innerHTML = `${day}, ${month} ${dayDate}`;
+  timeElement.innerHTML = ` ${hours}:${minutes} `;
+  fullDateElement.innerHTML = ` ${day}, ${month} ${dayDate}`;
 }
 
 function formatSunriseTime(timestamp) {
