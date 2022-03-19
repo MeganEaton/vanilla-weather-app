@@ -115,10 +115,21 @@ function formatSunsetTime(timestamp) {
   sunsetElement.innerHTML = `${hours}:${minutes}`;
 }
 
-let apiKey = "af800718d3a8f4106f6f5a11754d006c";
+function search(city) {
+  let apiKey = "af800718d3a8f4106f6f5a11754d006c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unitsI}&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
+
 let unitsM = "metric";
 let unitsI = "imperial";
-let city = "Boston";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unitsI}&appid=${apiKey}`;
 
-axios.get(apiUrl).then(displayTemperature);
+search("Montreal");

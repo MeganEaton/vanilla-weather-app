@@ -23,6 +23,10 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Mono&display=swap"
       rel="stylesheet"
     />
+    <script
+      src="https://kit.fontawesome.com/11202ea93b.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style/style.css" />
     <link rel="stylesheet" href="style/css/weather-icons.css" />
     <link rel="stylesheet" href="style/font/Space_Mono.css" />
@@ -31,6 +35,44 @@
   <body>
     <div class="container">
       <div class="weatherApp">
+        <form id="search-form">
+          <button
+            type="button"
+            class="btn btn-light currentLocationButton"
+            id="current-location-button"
+          >
+            <i class="fa-solid fa-location-crosshairs"></i>
+          </button>
+          <input
+            class="searchNewLocation"
+            id="city-input"
+            type="search"
+            placeholder="Please type a new location..."
+            autocomplete="off"
+          />
+          <input
+            class="searchButton"
+            id="submit"
+            type="submit"
+            value="Search"
+          />
+          <button
+            type="button"
+            class="btn btn-primary fButton"
+            id="f-button"
+            data-bs-toggle="button"
+          >
+            °F
+          </button>
+          <button
+            type="button"
+            class="btn btn-primary cButton"
+            id="c-button"
+            data-bs-toggle="button"
+          >
+            °C
+          </button>
+        </form>
         <h1 class="location" id="location">Montreal</h1>
         <h2>
           <ul class="nowTimeDate">

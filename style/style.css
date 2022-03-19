@@ -9,6 +9,50 @@ body {
   min-width: 500px;
   margin: 30px auto;
 }
+.currentLocationButton {
+  margin: 10px 2px 10px 45px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  font-size: 17px;
+  position: relative;
+  bottom: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 50px;
+  transition: all 200ms ease-in-out;
+}
+.currentLocationButton:hover {
+  background: rgba(0, 0, 0, 0.2);
+}
+.searchNewLocation {
+  width: 50%;
+  height: 30px;
+  margin: 5px;
+  text-align: center;
+}
+.searchButton {
+  margin-right: 10px;
+}
+.fButton {
+  padding: 0;
+  width: 31px;
+  height: 31px;
+  position: relative;
+  bottom: 2px;
+  background: rgb(239, 239, 239);
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+.cButton {
+  padding: 0;
+  width: 31px;
+  height: 31px;
+  position: relative;
+  bottom: 2px;
+  background: rgb(239, 239, 239);
+  color: black;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+}
 .location {
   text-align: center;
   font-size: 35px;
