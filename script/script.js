@@ -49,7 +49,8 @@ function displayTemperature(response) {
   let iconElement = document.querySelector("#icon");
   let feelsLikeElement = document.querySelector("#feels-like");
 
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  fahrenheitTemperature = response.data.main.temp;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -62,7 +63,6 @@ function displayTemperature(response) {
   formatSunriseTime(response.data.sys.sunrise * 1000);
   formatSunsetTime(response.data.sys.sunset * 1000);
 }
-// fix icon and feels-like, add sunrise, sunset
 
 function formatDate(timestamp) {
   let date = new Date(timestamp);
@@ -126,10 +126,39 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
+function searchLocation(position) {
+  let apiKey = "af800718d3a8f4106f6f5a11754d006c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=imperial&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  let celciusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let unitsM = "metric";
-let unitsI = "imperial";
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
+
+// f/c button unit conversions
+let fahrenheitTemperature = null;
+let celciusButton = document.querySelector("#c-button");
+celciusButton.addEventListener("click", displayCelciusTemperature);
+let fahrenheitButton = document.querySelector("#f-button");
+celciusButton.addEventListener("click", displayFahrenheitTemperature);
 
 search("Montreal");

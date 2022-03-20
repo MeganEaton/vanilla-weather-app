@@ -29,9 +29,18 @@ body {
   height: 30px;
   margin: 5px;
   text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
 }
 .searchButton {
   margin-right: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  transition: all 200ms ease-in-out;
+}
+.searchButton:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid transparent;
 }
 .fButton {
   padding: 0;
@@ -42,6 +51,11 @@ body {
   background: rgb(239, 239, 239);
   color: black;
   border: 1px solid rgba(0, 0, 0, 0.5);
+  transition: all 200ms ease-in-out;
+}
+.fButton:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid transparent;
 }
 .cButton {
   padding: 0;
@@ -52,6 +66,11 @@ body {
   background: rgb(239, 239, 239);
   color: black;
   border: 1px solid rgba(0, 0, 0, 0.5);
+  transition: all 200ms ease-in-out;
+}
+.cButton:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid transparent;
 }
 .location {
   text-align: center;
