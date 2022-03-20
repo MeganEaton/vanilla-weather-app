@@ -50,6 +50,7 @@ function displayTemperature(response) {
   let feelsLikeElement = document.querySelector("#feels-like");
 
   fahrenheitTemperature = response.data.main.temp;
+
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;

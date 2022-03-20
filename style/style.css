@@ -1,6 +1,14 @@
 body {
   background: rgb(48, 71, 71);
 }
+p {
+  font-size: 12px;
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+  color: azure;
+  position: relative;
+  bottom: 20px;
+}
 .weatherApp {
   background: azure;
   border: 1px solid rgba(0, 0, 0, 0.2);
