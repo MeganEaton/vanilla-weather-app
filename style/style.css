@@ -65,6 +65,10 @@ p {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid transparent;
 }
+.fButton:focus {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid transparent;
+}
 .cButton {
   padding: 0;
   width: 31px;
@@ -77,6 +81,10 @@ p {
   transition: all 200ms ease-in-out;
 }
 .cButton:hover {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid transparent;
+}
+.cButton:focus {
   background: rgba(0, 0, 0, 0.2);
   border: 1px solid transparent;
 }
