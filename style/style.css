@@ -13,8 +13,10 @@ p {
   background: azure;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 5px;
-  max-width: 600px;
-  min-width: 500px;
+  max-width: 530px;
+  min-width: 530px;
+  max-height: 500px;
+  min-height: 500px;
   margin: 30px auto;
 }
 .currentLocationButton {
@@ -125,7 +127,7 @@ p {
   font-size: 70px;
 }
 .nowDescription {
-  font-size: 22px;
+  font-size: 18px;
   text-transform: capitalize;
   font-family: "Roboto", sans-serif;
 }
@@ -162,48 +164,20 @@ p {
 .windUnit {
   font-family: "Roboto", sans-serif;
 }
-.forcast {
-  position: relative;
+.forecast {
   background: azure;
+  position: relative;
+  top: 10px;
 }
-.forcast i {
+.forecast i {
+  position: relative;
   font-size: 30px;
 }
-.forcast .sun {
+.forecast .sun {
   font-size: 20px;
   display: none;
 }
 .nextDay1 {
-  display: block;
-  list-style: none;
-  text-align: center;
-  padding: 0;
-}
-.nextDay2 {
-  display: block;
-  list-style: none;
-  text-align: center;
-  padding: 0;
-}
-.nextDay3 {
-  display: block;
-  list-style: none;
-  text-align: center;
-  padding: 0;
-}
-.nextDay4 {
-  display: block;
-  list-style: none;
-  text-align: center;
-  padding: 0;
-}
-.nextDay5 {
-  display: block;
-  list-style: none;
-  text-align: center;
-  padding: 0;
-}
-.nextDay6 {
   display: block;
   list-style: none;
   text-align: center;
