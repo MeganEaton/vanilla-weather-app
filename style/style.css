@@ -167,11 +167,14 @@ p {
 .forecast {
   background: azure;
   position: relative;
-  top: 10px;
+  top: 7px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 .forecast i {
   position: relative;
   font-size: 30px;
+  border: transparent;
 }
 .forecast .sun {
   font-size: 20px;

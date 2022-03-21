@@ -149,6 +149,43 @@ function displayFahrenheitTemperature(event) {
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let forecastHTML = `<div class="row gx-0 bg-transparent text-center">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-sm-2">
+              <div class="card border-0 bg-transparent">
+                <div class="card-body">
+                  <ul class="nextDay1">
+                    <li>${day}</li>
+                    <li><i class="wi wi-night-sleet"></i></li>
+                    <li>
+                      <span class="forecastHigh" id="forecast-high">H</span> /
+                      <span class="forecastLow" id="forecast-low">L</span>
+                    </li>
+                    <li>
+                      <i class="wi wi-sunrise sun"
+                        ><span class="riseSetTime">00:00</span></i
+                      >
+                    </li>
+                    <li>
+                      <i class="wi wi-sunset sun"
+                        ><span class="riseSetTime">00:00</span></i
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+          </div>`;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
@@ -163,3 +200,4 @@ let fahrenheitButton = document.querySelector("#f-button");
 fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
 
 search("Montreal");
+displayForecast();
