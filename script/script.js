@@ -160,6 +160,6 @@ let fahrenheitTemperature = null;
 let celciusButton = document.querySelector("#c-button");
 celciusButton.addEventListener("click", displayCelciusTemperature);
 let fahrenheitButton = document.querySelector("#f-button");
-celciusButton.addEventListener("click", displayFahrenheitTemperature);
+fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
 
 search("Montreal");
