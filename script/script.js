@@ -118,7 +118,7 @@ function formatSunsetTime(timestamp) {
 
 function search(city) {
   let apiKey = "af800718d3a8f4106f6f5a11754d006c";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${unitsI}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=imperial&appid=${apiKey}`;
   axios.get(apiUrl).then(displayTemperature);
 }
 function handleSubmit(event) {
