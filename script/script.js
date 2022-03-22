@@ -47,6 +47,13 @@ function getForecast(coordinates) {
   axios.get(apiUrl).then(displayForecast);
 }
 
+function getMoreDescription(coordinates) {
+  console.log(coordinates);
+  let apiKey = "af800718d3a8f4106f6f5a11754d006c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=imperial&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayMoreDescription);
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#location");
@@ -72,6 +79,7 @@ function displayTemperature(response) {
   formatSunsetTime(response.data.sys.sunset * 1000);
 
   getForecast(response.data.coord);
+  getMoreDescription(response.data.coord);
 }
 
 function formatDate(timestamp) {
@@ -165,11 +173,12 @@ function formatDay(timestamp) {
   return days[day];
 }
 function displayForecast(response) {
+  console.log(response.data.daily);
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row gx-0 bg-transparent text-center">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 6) {
+    if (0 < index && index < 7) {
       forecastHTML =
         forecastHTML +
         `
@@ -206,6 +215,15 @@ function displayForecast(response) {
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+
+function displayMoreDescription(response) {
+  console.log(response);
+  let todaysHighElement = document.querySelector("#todays-high");
+  let todaysLowElement = document.querySelector("#todays-low");
+
+  todaysHighElement.innerHTML = Math.round(response.data.daily[0].temp.max);
+  todaysLowElement.innerHTML = Math.round(response.data.daily[0].temp.min);
 }
 
 let form = document.querySelector("#search-form");
