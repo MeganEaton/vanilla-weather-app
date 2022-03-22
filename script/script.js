@@ -40,6 +40,13 @@ function displayWeatherIcon(icon) {
   return iconClass;
 }
 
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "af800718d3a8f4106f6f5a11754d006c";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&units=imperial&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#location");
@@ -63,6 +70,8 @@ function displayTemperature(response) {
   feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
   formatSunriseTime(response.data.sys.sunrise * 1000);
   formatSunsetTime(response.data.sys.sunset * 1000);
+
+  getForecast(response.data.coord);
 }
 
 function formatDate(timestamp) {
@@ -149,23 +158,35 @@ function displayFahrenheitTemperature(event) {
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
 
-function displayForecast() {
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  let days = ["Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   let forecastHTML = `<div class="row gx-0 bg-transparent text-center">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `
             <div class="col-sm-2">
-              <div class="card border-0 bg-transparent">
+              <div class="card border-2 bg-transparent rounded-0">
                 <div class="card-body">
                   <ul class="nextDay1">
-                    <li>${day}</li>
-                    <li><i class="wi wi-night-sleet"></i></li>
-                    <li>
-                      <span class="forecastHigh" id="forecast-high">H</span> /
-                      <span class="forecastLow" id="forecast-low">L</span>
+                    <li class="weekday">${formatDay(forecastDay.dt)}</li>
+                    <li><i class="${displayWeatherIcon(
+                      forecastDay.weather[0].icon
+                    )}"></i></li>
+                    <li class="forecastHighLow">
+                      <span class="forecastHigh" id="forecast-high">${Math.round(
+                        forecastDay.temp.max
+                      )}</span>/<span class="forecastLow" id="forecast-low">${Math.round(
+          forecastDay.temp.min
+        )}</span>
                     </li>
                     <li>
                       <i class="wi wi-sunrise sun"
@@ -181,6 +202,7 @@ function displayForecast() {
                 </div>
               </div>
           </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -200,4 +222,3 @@ let fahrenheitButton = document.querySelector("#f-button");
 fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
 
 search("Montreal");
-displayForecast();

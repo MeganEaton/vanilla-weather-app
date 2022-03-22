@@ -164,10 +164,15 @@ p {
 .windUnit {
   font-family: "Roboto", sans-serif;
 }
+.weekday {
+  font-family: "Roboto", sans-serif;
+  position: relative;
+  bottom: 7px;
+}
 .forecast {
   background: azure;
   position: relative;
-  top: 7px;
+  top: 8px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
@@ -175,6 +180,15 @@ p {
   position: relative;
   font-size: 30px;
   border: transparent;
+}
+.forecastHighLow {
+  position: relative;
+  top: 12px;
+  font-family: "Space Mono", monospace;
+  font-size: 14px;
+}
+.forecastHigh {
+  font-weight: 600;
 }
 .forecast .sun {
   font-size: 20px;
