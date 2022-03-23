@@ -154,18 +154,6 @@ function searchLocation(position) {
   axios.get(apiUrl).then(displayTemperature);
 }
 
-function displayCelciusTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  let celciusTemperature = ((fahrenheitTemperature - 32) * 5) / 9;
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-}
-function displayFahrenheitTemperature(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
@@ -183,29 +171,19 @@ function displayForecast(response) {
         forecastHTML +
         `
             <div class="col-sm-2">
-              <div class="card border-2 bg-transparent rounded-0">
+              <div class="card border-0 bg-transparent rounded-0">
                 <div class="card-body">
                   <ul class="nextDay1">
                     <li class="weekday">${formatDay(forecastDay.dt)}</li>
                     <li><i class="${displayWeatherIcon(
                       forecastDay.weather[0].icon
-                    )}"></i></li>
+                    )}" alt="forecast icon"></i></li>
                     <li class="forecastHighLow">
                       <span class="forecastHigh" id="forecast-high">${Math.round(
                         forecastDay.temp.max
                       )}</span>/<span class="forecastLow" id="forecast-low">${Math.round(
           forecastDay.temp.min
         )}</span>
-                    </li>
-                    <li>
-                      <i class="wi wi-sunrise sun"
-                        ><span class="riseSetTime">00:00</span></i
-                      >
-                    </li>
-                    <li>
-                      <i class="wi wi-sunset sun"
-                        ><span class="riseSetTime">00:00</span></i
-                      >
                     </li>
                   </ul>
                 </div>
@@ -221,9 +199,26 @@ function displayMoreDescription(response) {
   console.log(response);
   let todaysHighElement = document.querySelector("#todays-high");
   let todaysLowElement = document.querySelector("#todays-low");
+  formatMoonriseTime(response.data.daily[0].moonrise * 1000);
+  formatMoonsetTime(response.data.daily[0].moonset * 1000);
 
   todaysHighElement.innerHTML = Math.round(response.data.daily[0].temp.max);
   todaysLowElement.innerHTML = Math.round(response.data.daily[0].temp.min);
+}
+
+function formatMoonriseTime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = ("0" + date.getHours()).slice(-2);
+  let minutes = ("0" + date.getMinutes()).slice(-2);
+  let moonriseElement = document.querySelector("#moonrise");
+  moonriseElement.innerHTML = `${hours}:${minutes}`;
+}
+function formatMoonsetTime(timestamp) {
+  let date = new Date(timestamp);
+  let hours = ("0" + date.getHours()).slice(-2);
+  let minutes = ("0" + date.getMinutes()).slice(-2);
+  let moonsetElement = document.querySelector("#moonset");
+  moonsetElement.innerHTML = `${hours}:${minutes}`;
 }
 
 let form = document.querySelector("#search-form");
@@ -231,12 +226,5 @@ form.addEventListener("submit", handleSubmit);
 
 let currentLocationButton = document.querySelector("#current-location-button");
 currentLocationButton.addEventListener("click", getCurrentLocation);
-
-// f/c button unit conversions
-let fahrenheitTemperature = null;
-let celciusButton = document.querySelector("#c-button");
-celciusButton.addEventListener("click", displayCelciusTemperature);
-let fahrenheitButton = document.querySelector("#f-button");
-fahrenheitButton.addEventListener("click", displayFahrenheitTemperature);
 
 search("Montreal");

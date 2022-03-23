@@ -56,23 +56,6 @@
             type="submit"
             value="Search"
           />
-          <button
-            type="button"
-            class="btn btn-primary fButton"
-            id="f-button"
-            data-bs-toggle="button"
-            autofocus
-          >
-            °F
-          </button>
-          <button
-            type="button"
-            class="btn btn-primary cButton"
-            id="c-button"
-            data-bs-toggle="button"
-          >
-            °C
-          </button>
         </form>
         <h1 class="location" id="location">Montreal</h1>
         <h2>
@@ -85,13 +68,13 @@
           </ul>
           <div class="row justify-content-sm-center nowRiseSet text-center">
             <div class="col col-sm-4 sunriseTime">
-              <i class="wi wi-sunrise"
-                ><span class="riseSetTime" id="sunrise">00:00</span></i
+              <i class="wi wi-sunrise" alt="sunrise" title="Sunrise"></i>
+                <span class="riseSetTime" id="sunrise">00:00</span></i
               >
             </div>
             <div class="col col-sm-4 sunsetTime">
-              <i class="wi wi-sunset"
-                ><span class="riseSetTime" id="sunset">00:00</span></i
+              <i class="wi wi-sunset" alt="sunset" title="Sunset">
+                <span class="riseSetTime" id="sunset">00:00</span></i
               >
             </div>
           </div>
@@ -101,7 +84,7 @@
           <div class="col">
             <ul class="nowIconDescription">
               <li class="nowIcon" id="icon">
-                <i class="wi wi-night-sleet"></i>
+                <i class="wi wi-night-sleet" alt="weather icon"></i>
               </li>
               <li class="nowDescription" id="now-description">Clear</li>
             </ul>
@@ -118,15 +101,33 @@
           <div class="col">
             <ul class="nowAddDescription">
               <li class="feelsLike">
-                <i class="wi wi-thermometer"></i>:
-                <span id="feels-like">50</span>°
+                <i
+                  class="wi wi-thermometer"
+                  alt="feels like"
+                  title="Feels Like"
+                ></i
+                >: <span id="feels-like">50</span>°
               </li>
               <li class="humidity">
-                <i class="wi wi-humidity"></i>: <span id="humidity">60</span>%
+                <i class="wi wi-humidity" alt="humidity" title="Humidity"></i>:
+                <span id="humidity">60</span>%
               </li>
               <li class="windSpeed">
-                <i class="wi wi-strong-wind"></i>: <span id="wind-speed"></span
+                <i
+                  class="wi wi-strong-wind"
+                  alt="wind speed"
+                  title="Wind Speed"
+                ></i
+                >: <span id="wind-speed"></span
                 ><span class="windUnit"> mph </span>
+              </li>
+              <li>
+                <i class="wi wi-moonrise" alt="moonrise" title="Moonrise"></i>:
+                <span id="moonrise"> </span>
+              </li>
+              <li>
+                <i class="wi wi-moonset" alt="moonset" title="Moonset"></i>:
+                <span id="moonset"> </span>
               </li>
             </ul>
           </div>
@@ -134,8 +135,10 @@
         <div class="forecast" id="forecast"></div>
       </div>
       <p>
-        Coded by <strong>Megan Eaton</strong>. Full code can be viewed at:
-        <a href="https://github.com/MeganEaton/vanilla-weather-app"
+        Coded by <strong>Megan Eaton</strong>. Full code can be viewed on
+        <a
+          href="https://github.com/MeganEaton/vanilla-weather-app"
+          target="_blank"
           ><i class="fa-brands fa-github"></i
         ></a>
       </p>
